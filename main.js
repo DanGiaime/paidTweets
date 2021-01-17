@@ -8,10 +8,10 @@ let makeScreenPhoneSize = async (page) => {
   await page.setViewport({ width: 660, height: 1000 });
 };
 
-(async () => {
+let start = async (tweetURL) => {
   const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
-  const tweetURL = "https://twitter.com/roxkstar74/status/1346145124686946304/retweets";
+  //const tweetURL = "https://twitter.com/roxkstar74/status/1346145124686946304/retweets";
 
   // load login page as phone
   await page.goto('https://www.twitter.com/login');
@@ -38,5 +38,7 @@ let makeScreenPhoneSize = async (page) => {
 
 
   await browser.close();
-})();
+
+  return usernames;
+};
 
