@@ -8,7 +8,7 @@ let makeScreenPhoneSize = async (page) => {
   await page.setViewport({ width: 660, height: 1000 });
 };
 
-let start = async (req, res) => {
+async function start (req, res) {
   const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
   let tweetURL = res.body.tweetURL;
