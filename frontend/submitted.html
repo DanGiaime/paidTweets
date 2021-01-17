@@ -1,0 +1,115 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Get Paid 2 Tweet</title>
+  <meta name="description" content="Get Paid To Tweet">
+  <meta name="author" content="Roxkstar74">
+
+  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+
+</head>
+
+<body>
+  <!-- <script src="js/scripts.js"></script> -->
+  <script>
+      const apiKey = 'keygtXKZVXb431hwf';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let everything = async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const tweeturl = urlParams.get('tweeturl');
+      const budget = parseFloat(urlParams.get('budget'));
+      const ppr = parseFloat(urlParams.get('ppr'));
+
+    let internalBody = 
+    {
+        "records": [
+            {
+                "fields": {
+                    "tweeturl": tweeturl,
+                    "budget": budget,
+                    "ppr": ppr
+                }
+            }
+        ]
+    };
+
+    console.log(internalBody);
+
+    let headers = {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "Authorization": `Bearer ${apiKey}`
+        }
+
+    let body = {
+        url: `https://api.airtable.com/v0/appRnW7Qkk2CsYiKW/t3`,
+        method: "POST",
+        headers: headers,
+        body: internalBody,
+        redirect: "follow",
+    };
+
+    let requestOptions = {
+        method: "POST",
+        redirect: "follow",
+        //headers: headers,
+        body: JSON.stringify(body)
+    }
+
+    let yelpBlob = await fetch("https://us-central1-spherical-gate-286620.cloudfunctions.net/no-cors/",
+        requestOptions
+    )
+    .then((response) => response.json())
+    .catch((error) => console.log("error", error));
+
+    console.log(yelpBlob);
+};
+
+everything();
+
+      //fname, lname, ppr
+  </script>
+  <p>Submitted! Thanks</p>
+</body>
+</html>
