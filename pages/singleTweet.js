@@ -32,7 +32,7 @@ let scrollUntilFindUsernames = async (page) => {
     
 
     return await page.evaluate(async () => {
-        for(let i = 0; i < 20; i++) {
+        for(let i = 0; i < 5; i++) {
             window.scrollBy(0, window.innerHeight);
             await new Promise(resolve => setTimeout(resolve, 1000));
             // First indication of finding the right tweet on the profile
