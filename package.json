@@ -1,0 +1,23 @@
+{
+  "name": "twelvehourstartup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "function.js",
+  "dependencies": {
+    "puppeteer": "^5.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanGiaime/paidTweets.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DanGiaime/paidTweets/issues"
+  },
+  "homepage": "https://github.com/DanGiaime/paidTweets#readme"
+}
