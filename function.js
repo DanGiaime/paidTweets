@@ -9,9 +9,9 @@ let makeScreenPhoneSize = async (page) => {
 };
 
 exports.start = async (req, res) => {
-  const browser = await puppeteer.launch({headless: false});
+  const browser = await puppeteer.launch({headless: true});
   const page = await browser.newPage();
-  let tweetURL = res.body.tweetURL;
+  let tweetURL = req.body.tweetURL;
   //const tweetURL = "https://twitter.com/roxkstar74/status/1346145124686946304/retweets";
 
   // load login page as phone
