@@ -1,17 +1,19 @@
 const puppeteer = require('puppeteer');
-const {fullLoginFlow, sleep} = require('./pages/login');
-const {USERNAME, PASSWORD} = require('./secrets');
-const {scrollUntilFindUsernames} = require('./pages/singleTweet');
+const {fullLoginFlow, sleep} = require('../pages/login');
+const {USERNAME, PASSWORD} = require('../secrets');
+const {scrollUntilFindUsernames} = require('../pages/singleTweet');
 
 
 let makeScreenPhoneSize = async (page) => {
   await page.setViewport({ width: 660, height: 1000 });
 };
 
-exports.start = async (req, res) => {
+let findRetweeters = async (tweetURL) => {
   const browser = await puppeteer.launch({headless: true});
+
   const page = await browser.newPage();
-  let tweetURL = req.body.tweetURL;
+  await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36')
+
   //const tweetURL = "https://twitter.com/roxkstar74/status/1346145124686946304/retweets";
 
   // load login page as phone
@@ -39,11 +41,7 @@ exports.start = async (req, res) => {
 
 
   await browser.close();
-  if(!usernames) {
-    res.status(404);
-  }
-  else {  
-    res.send(usernames); 
-  }
+  return usernames;
 };
 
+module.exports = {findRetweeters};
