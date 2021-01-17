@@ -2,8 +2,9 @@
   "name": "twelvehourstartup",
   "version": "1.0.0",
   "description": "",
-  "main": "function.js",
+  "main": "backend/forreal.js",
   "dependencies": {
+    "express": "^4.17.1",
     "puppeteer": "^5.5.0"
   },
   "devDependencies": {},
